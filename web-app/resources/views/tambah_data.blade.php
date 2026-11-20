@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
 <h1>{{$judul}}</h1>
-<form method="post" action="/employe/store">
+<form <form action="{{ route('employe.store') }}" method="POST">
 @csrf
 <table border="0" align="center">
     <tr>

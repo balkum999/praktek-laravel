@@ -18,7 +18,14 @@
         <td>{{$row->gender}}</td>
         <td>{{$row->gaji}}</td>
         <td>
-            <button>Edit</button> | <button>Delete</button>
+            <a href="{{ route('employe.edit', $row->id) }}"><button>Edit</button></a>
+            <form method="post" action="{{ route('employe.destroy', $row->id) }}" style="display: inline-block;">
+            @method('delete')
+            @csrf
+                <button>
+                    Delete
+                </button>
+            </form>
         </td>
     </tr>
 @endforeach
