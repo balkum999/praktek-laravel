@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\KalkulatorController;
+use App\Http\Controllers\DashboardController;
 
 #Route::get('/', function () {
 #    return view('welcome');
@@ -36,3 +37,8 @@ Route::get('/daftar/mahasiswa',[MahasiswaController::class, 'index']);
 
 // route ke controller KalkulatorController ke fungsi luasSegitiga
 Route::get('/kalkulator/segitiga',[KalkulatorController::class, 'luasSegitiga']);
+
+// route ke dashboardcontroller ke fungsi dash
+Route::get('/dashboard',[DashboardController::class, 'dash']);
+
+Route::get('/gallery',[DashboardController::class, 'gallery']);
