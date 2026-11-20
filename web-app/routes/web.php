@@ -7,6 +7,7 @@ use App\Http\Controllers\Web;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeController;
 
 #Route::get('/', function () {
 #    return view('welcome');
@@ -42,3 +43,6 @@ Route::get('/kalkulator/segitiga',[KalkulatorController::class, 'luasSegitiga'])
 Route::get('/dashboard',[DashboardController::class, 'dash']);
 
 Route::get('/gallery',[DashboardController::class, 'gallery']);
+
+// route ke employecontroller ke fungsi index
+Route::get('/employe',[EmployeController::class, 'index']);
