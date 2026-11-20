@@ -8,14 +8,18 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeController;
-
+use App\Http\Controllers\AuthController;
 #Route::get('/', function () {
 #    return view('welcome');
 #});
 
-Route::get('/', function () {
+//Route::get('/', function () {
 //return view('welcome');
-return "Hallo namaku adalah Laravel, Salam Kenal";
+//return "Hallo namaku adalah Laravel, Salam Kenal";
+//});
+
+Route::get('/', function(){
+return view('login');
 });
 
 //route baru
@@ -54,3 +58,9 @@ Route::resource('employe',EmployeController::class);
 //Route::put('/employe/{employe}',[EmployeController::class, 'update']);
 
 //Route::delete('/employe/{employe}',[EmployeController::class, 'destroy']);
+
+// route untuk login
+Route::post('/login',[AuthController::class, 'cek']);
+
+// route untuk logout
+Route::get('/logout',[AuthController::class, 'logout']);
