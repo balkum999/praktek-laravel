@@ -44,13 +44,15 @@ Route::get('/daftar/mahasiswa',[MahasiswaController::class, 'index']);
 Route::get('/kalkulator/segitiga',[KalkulatorController::class, 'luasSegitiga']);
 
 // route ke dashboardcontroller ke fungsi dash
-Route::get('/dashboard',[DashboardController::class, 'dash']);
+//Route::get('/dashboard',[DashboardController::class, 'dash']);
 
-Route::get('/gallery',[DashboardController::class, 'gallery']);
+//Route::get('/gallery',[DashboardController::class, 'gallery']);
 
 // route ke employecontroller ke fungsi index
 //Route::get('/employe',[EmployeController::class, 'index']);
-Route::resource('employe',EmployeController::class);
+
+//Route::resource('employe',EmployeController::class);
+
 //Route::get('/employe/create',[EmployeController::class, 'create']);
 //Route::post('/employe/store',[EmployeController::class, 'store']);
 
@@ -64,3 +66,11 @@ Route::post('/login',[AuthController::class, 'cek']);
 
 // route untuk logout
 Route::get('/logout',[AuthController::class, 'logout']);
+
+Route::group(['middleware' => 'islogin'], function(){
+    Route::get('/dashboard',[DashboardController::class, 'dash']);
+    Route::get('/gallery',[DashboardController::class, 'gallery']);
+     // Otomatis membuat semua nama route employe.*
+    Route::resource('employe', EmployeController::class);
+    Route::get('/logout',[AuthController::class, 'logout']);
+});
