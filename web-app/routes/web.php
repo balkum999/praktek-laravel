@@ -46,3 +46,6 @@ Route::get('/gallery',[DashboardController::class, 'gallery']);
 
 // route ke employecontroller ke fungsi index
 Route::get('/employe',[EmployeController::class, 'index']);
+
+Route::get('/employe/create',[EmployeController::class, 'create']);
+Route::post('/employe/store',[EmployeController::class, 'store']);
