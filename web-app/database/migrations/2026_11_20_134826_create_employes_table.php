@@ -10,12 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('employes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('employes', function (Blueprint $table) {
+        $table->id();
+        $table->string('nama');
+        $table->text('alamat');
+        $table->enum('gender', ['L', 'P']);
+        $table->integer('gaji');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.
